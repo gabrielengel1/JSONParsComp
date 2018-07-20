@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.10.14" />
+    <PackageReference Include="Newtonsoft.JSON" Version="11.0.2" />
+    <PackageReference Include="System.json" Version="4.5.0" />
+  </ItemGroup>
+
 </Project>
