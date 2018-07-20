@@ -1,4 +1,5 @@
 using BenchmarkDotNet.Attributes;
+using Newtonsoft.Json;
 
 namespace JSONParsComp.SerializationBenchmark
 {
