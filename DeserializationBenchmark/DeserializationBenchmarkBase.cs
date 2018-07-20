@@ -6,14 +6,19 @@ namespace JSONParsComp.DeserializationBenchmark
     {
         protected string bigObject, bigArray, realWorldObject;
 
+        public string getRealWorldObject(){
+            return realWorldObject;
+        }
+
+
         [GlobalSetup]
         public void Setup()
         {
             var bigJsonObject = GenerateObjects(3);
             bigObject = bigJsonObject.ToString();
 
-            bigArray = GenerateObjects(3);
-            bigObject = bigJsonObject.ToString();
+            var bigJsonArray = GenerateObjects(3);
+            bigArray = bigJsonArray.ToString();
 
             realWorldObject = @"
                 [
