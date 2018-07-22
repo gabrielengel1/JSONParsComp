@@ -17,8 +17,10 @@ namespace JSONParsComp.SerializationBenchmark
 
             var bigJsonArray = GenerateObjects(3);
             bigArray = ParseBigArray(bigJsonArray);
-        }
 
+            realWorldObject = ParseRealWorldObject(BenchmarkConstants.RealWorldJson);
+        }
+        
         protected abstract object ParseBigObject(string json);
         protected abstract object ParseBigArray(string json);
         protected abstract object ParseRealWorldObject(string json);
