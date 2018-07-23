@@ -20,7 +20,7 @@ namespace JSONParsComp.SerializationBenchmark
         [Benchmark]
         public override void SerializeRealWorldObject()
         {
-            var result = JsonObject.Parse((string)realWorldString);
+            var result = JsonObject.Parse((string)realWorldObjectString);
         }
     }
 }
