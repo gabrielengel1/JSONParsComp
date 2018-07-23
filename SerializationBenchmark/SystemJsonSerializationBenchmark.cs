@@ -8,19 +8,19 @@ namespace JSONParsComp.SerializationBenchmark
         [Benchmark]
         public override void SerializeBigObject()
         {
-            var jsonObj = JsonObject.Parse(bigObjectString);
+            var result = JsonObject.Parse((string)bigObjectString);
         }
 
         [Benchmark]
         public override void SerializeBigArray()
         {
-            var jsonObj = JsonObject.Parse(bigArrayString);
+            var result = JsonObject.Parse((string)bigArrayString);
         }
 
         [Benchmark]
         public override void SerializeRealWorldObject()
         {
-            var jsonObj = JsonObject.Parse(realWorldJsonString);
+            var result = JsonObject.Parse((string)realWorldString);
         }
     }
 }

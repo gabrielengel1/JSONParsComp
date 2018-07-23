@@ -1,27 +1,26 @@
-using System.Collections.Generic;
+using System.Json;
 using BenchmarkDotNet.Attributes;
-using Newtonsoft.Json;
 
 namespace JSONParsComp.DeserializationBenchmark
 {
-    public class SystemJsonDeserializationBenchmark : DeserializationBenchmarkBase
+    public class NewtonsoftDeserializationBenchmark : DeserializationBenchmarkBase
     {
         [Benchmark]
         public override void DeserializeBigObject()
         {
-            var result = JsonConvert.DeserializeObject(bigObject);
+            var result = JsonObject.Parse(bigObject);
         }
-        
+
         [Benchmark]
         public override void DeserializeBigArray()
         {
-            var result = JsonConvert.DeserializeObject<List<object>>(bigArray);
+            var result = JsonArray.Parse(bigArray);
         }
 
         [Benchmark]
         public override void DeserializeRealWorldObject()
         {
-            var result = JsonConvert.DeserializeObject(realWorldObject);
+            var result = JsonObject.Parse(realWorldObject);
         }
     }
 }

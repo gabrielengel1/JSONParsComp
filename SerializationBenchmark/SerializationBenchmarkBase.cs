@@ -20,15 +20,15 @@ namespace JSONParsComp.SerializationBenchmark
         public void Setup()
         {
             var bigJsonObject = GenerateObjects(3);
-            bigObject = JsonObject.Parse(bigJsonObject);
-            bigObjectString = (bigJsonObject).ToString();
+            bigObject = JsonConvert.DeserializeObject(bigJsonObject);
+            bigObjectString = JsonValue.Parse(bigJsonObject);
 
             var bigJsonArray = GenerateObjects(3);
-            bigArray = JsonArray.Parse(bigJsonArray);
-            bigArrayString = (bigJsonArray).ToString();
+            bigArray = JsonConvert.DeserializeObject(bigJsonArray);
+            bigArrayString = JsonValue.Parse(bigJsonArray);
 
-            realWorldObject = JsonObject.Parse(BenchmarkConstants.RealWorldJson);
-            realWorldObjectString = (BenchmarkConstants.RealWorldJson).ToString();
+            realWorldObject = JsonConvert.DeserializeObject(BenchmarkConstants.RealWorldJson);
+            realWorldObjectString = JsonValue.Parse(BenchmarkConstants.RealWorldJson);
         }
 
         public abstract void SerializeBigObject();
