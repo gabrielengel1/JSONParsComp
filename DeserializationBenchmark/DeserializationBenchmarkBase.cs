@@ -20,7 +20,7 @@ namespace JSONParsComp.DeserializationBenchmark
             var bigJsonArray = GenerateObjects(3);
             bigArray = bigJsonArray.ToString();
 
-            realWorldObject = BenchmarkConstants.RealWorldJson;
+            realWorldObject = BenchmarkConstants.RealWorldJson.ToString();
         }
 
         public abstract void DeserializeBigObject();

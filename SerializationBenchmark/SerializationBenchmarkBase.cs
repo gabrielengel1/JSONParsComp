@@ -1,4 +1,6 @@
 using BenchmarkDotNet.Attributes;
+using System.Json;
+using Newtonsoft.Json;
 
 namespace JSONParsComp.SerializationBenchmark
 
@@ -9,21 +11,25 @@ namespace JSONParsComp.SerializationBenchmark
         protected object bigArray;
         protected object realWorldObject;
 
+        protected object bigObjectString;
+        protected object bigArrayString;
+        protected object realWorldObjectString;
+
+
         [GlobalSetup]
         public void Setup()
         {
             var bigJsonObject = GenerateObjects(3);
-            bigObject = ParseBigObject(bigJsonObject.ToString());
+            bigObject = JsonObject.Parse(bigJsonObject);
+            bigObjectString = (bigJsonObject).ToString();
 
             var bigJsonArray = GenerateObjects(3);
-            bigArray = ParseBigArray(bigJsonArray);
+            bigArray = JsonArray.Parse(bigJsonArray);
+            bigArrayString = (bigJsonArray).ToString();
 
-            realWorldObject = ParseRealWorldObject(BenchmarkConstants.RealWorldJson);
+            realWorldObject = JsonObject.Parse(BenchmarkConstants.RealWorldJson);
+            realWorldObjectString = (BenchmarkConstants.RealWorldJson).ToString();
         }
-        
-        protected abstract object ParseBigObject(string json);
-        protected abstract object ParseBigArray(string json);
-        protected abstract object ParseRealWorldObject(string json);
 
         public abstract void SerializeBigObject();
         public abstract void SerializeBigArray();
