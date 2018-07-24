@@ -17,7 +17,7 @@ namespace JSONParsComp.DeserializationBenchmark
             var bigJsonObject = GenerateObjects(3);
             bigObject = bigJsonObject.ToString();
 
-            var bigJsonArray = GenerateObjects(3);
+            var bigJsonArray = GenerateArray(3);
             bigArray = bigJsonArray.ToString();
 
             realWorldObject = BenchmarkConstants.RealWorldJson.ToString();

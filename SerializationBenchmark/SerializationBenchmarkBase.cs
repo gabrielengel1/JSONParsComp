@@ -11,25 +11,21 @@ namespace JSONParsComp.SerializationBenchmark
         protected object bigArray;
         protected object realWorldObject;
 
-        protected object bigObjectString;
-        protected object bigArrayString;
-        protected object realWorldObjectString;
-
 
         [GlobalSetup]
         public void Setup()
         {
             var bigJsonObject = GenerateObjects(3);
-            bigObject = JsonConvert.DeserializeObject(bigJsonObject);
-            bigObjectString = JsonValue.Parse(bigJsonObject);
+            bigObject = ParseObject(bigJsonObject.ToString());
 
-            var bigJsonArray = GenerateObjects(3);
-            bigArray = JsonConvert.DeserializeObject(bigJsonArray);
-            bigArrayString = JsonValue.Parse(bigJsonArray);
+            var bigJsonArray = GenerateArray(3);
+            bigArray = ParseArray(bigJsonArray.ToString());
 
-            realWorldObject = JsonConvert.DeserializeObject(BenchmarkConstants.RealWorldJson);
-            realWorldObjectString = JsonValue.Parse(BenchmarkConstants.RealWorldJson);
+            realWorldObject = ParseObject(BenchmarkConstants.RealWorldJson);
         }
+
+        public abstract object ParseObject(string json);
+        public abstract object ParseArray(string json);
 
         public abstract void SerializeBigObject();
         public abstract void SerializeBigArray();

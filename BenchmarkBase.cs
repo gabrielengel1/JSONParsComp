@@ -24,5 +24,17 @@ namespace JSONParsComp
 
             return obj;
         }
+
+        protected JsonArray GenerateArray(int n)
+        {
+            var array = new JsonArray();
+            
+            for (int i = 0; i < n; i++)
+            {
+                array.Add(GenerateObjects(i));
+            }
+
+            return array;
+        }
     }
 }

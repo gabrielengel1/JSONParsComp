@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
 using Newtonsoft.Json;
 
@@ -21,6 +22,16 @@ namespace JSONParsComp.SerializationBenchmark
         public override void SerializeRealWorldObject()
         {
             var result = JsonConvert.SerializeObject(realWorldObject);
+        }
+
+        public override object ParseObject(string json)
+        {
+            return JsonConvert.DeserializeObject(json);
+        }
+
+        public override object ParseArray(string json)
+        {
+            return JsonConvert.DeserializeObject<List<object>>(json);
         }
     }
 }
