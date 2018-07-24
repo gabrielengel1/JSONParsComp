@@ -15,10 +15,10 @@ namespace JSONParsComp.SerializationBenchmark
         [GlobalSetup]
         public void Setup()
         {
-            var bigJsonObject = GenerateObjects(3);
+            var bigJsonObject = GenerateObjects(5);
             bigObject = ParseObject(bigJsonObject.ToString());
 
-            var bigJsonArray = GenerateArray(3);
+            var bigJsonArray = GenerateArray(5);
             bigArray = ParseArray(bigJsonArray.ToString());
 
             realWorldObject = ParseObject(BenchmarkConstants.RealWorldJson);
